@@ -1,4 +1,4 @@
-module github.com/hosseini403/fiber2
+module github.com/hosseini403/fiber3
 
 go 1.23.1
 
