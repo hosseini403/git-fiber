@@ -1,8 +1,9 @@
 package server
 
 import (
-	"fiberProject/Fiber2/middleware"
 	"net/http"
+
+	"fiberProject/Fiber2/middleware"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -10,8 +11,10 @@ import (
 func Run() {
 	// Initialize Fiber
 	app := fiber.New()
+
 	// Global Middlewares
 	app.Use(middleware.GlobalLogger)
+
 	// Define Routes
 	app.Get("/request-logger", middleware.RequestLogger, func(ctx *fiber.Ctx) error {
 		return ctx.Status(http.StatusOK).JSON(fiber.Map{
@@ -23,5 +26,6 @@ func Run() {
 			"message": "Time log is printed out",
 		})
 	})
+
 	app.Listen(":3003")
 }
